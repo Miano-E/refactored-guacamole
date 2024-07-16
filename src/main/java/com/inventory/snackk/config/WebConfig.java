@@ -14,14 +14,14 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        logger.info("Adding resource handlers");
-        registry.addResourceHandler("/**")
+        logger.info("Configuring resource handlers");
+        registry.addResourceHandler("/static/**")
                 .addResourceLocations("classpath:/static/dist/browser/");
     }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        logger.info("Adding view controllers");
+        logger.info("Configuring view controllers");
         registry.addViewController("/{path:[^\\.]*}")
                 .setViewName("forward:/index.html");
     }

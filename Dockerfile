@@ -12,6 +12,9 @@ COPY .mvn .mvn
 RUN chmod +x ./mvnw
 RUN ./mvnw clean package -DskipTests
 
+# List contents of target directory for debugging
+RUN ls -l /app/target
+
 # Stage 2: Create the final Docker image using OpenJDK 19
 FROM openjdk:19-jdk
 VOLUME /tmp
